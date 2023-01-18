@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="jq/jquery-3.3.1.min.js"></script>
+    <title>menures</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+        #menu{
+            width: 50%;
+            height: 40px;
+            margin: 100px auto;
+            transition: .4s;
+        }
+        #menu>li{
+            float: left;
+            padding: 0 20px;
+            width: 25%;
+            list-style-type: none;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            line-height: 40px;
+            border-right: 1px solid white;
+            text-align: center;
+            border-radius: 3px;
+            transition: .4s;
+            cursor: pointer;
+        }
+        /* tablet */
+        @media screen and (min-width:769px){
+            #menu>li:first-child{
+                display:none;
+            }
+        }
+        /* mobile  */
+        @media screen and (max-width: 768px){
+            #menu>li{
+                display:none;
+                border-bottom: 1px solid white;
+            }
+            #menu>li:hover{
+                background-color: rgb(51, 51, 51);
+            }
+            #menu>li:first-child{
+                display: block;
+                width: 20% !important;
+                cursor: pointer;
+            }
+            #menu>li:first-child i:last-child{
+                display: none;
+            }
+            .mobile-li{
+                display: block !important;
+                width: 100% !important;
+            }
+            .mobile-height{
+                height: 200px !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li class="bar"><i class="fas fa-bars"></i><i class="fas fa-times"></i></li>
+        <li>Home</li>
+        <li>Gallery</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <script>
+        var i=0;
+            $(function(){
+                $(".bar").click(function(){
+                    if(i==0){
+                        $("#menu>li").addClass("mobile-li");
+                        $("menu>li").addClass("mobile-height");
+                        $(this).children(".fa-bars").hide();
+                        $(this).children(".fa-times").show();
+                        i++;
+                    }else{
+                        $("#menu>li").removeClass("mobile-li");
+                        $(this).children(".fa-bars").show();
+                        $(this).children(".fa-times").hide();
+                        i--;
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
